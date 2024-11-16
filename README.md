@@ -3,21 +3,22 @@
 ![](https://github.com/Socxenophone/TinyC2/blob/main/thumbnail.jpg) 
 
 
-A lightweight, modular Command and Control (C2) framework, designed for both learning and practical red teaming. Built with simplicity (KISS principle) and stealth in mind, it provides a flexible foundation that can be easily customized and extended for real-world operations. 
-
-Intended to serve as a starting point for the user to tailor and scale according to specific needs. 
+A lightweight, modular Command and Control (C2) framework, designed for both learning and practical red teaming. Built with the KISS principle and stealth in mind, it provides a flexible foundation that can be easily customized and extended for real-world operations or specific needs. 
 
 ---
 
 
-## Features
-- **Minimal Footprint**: Lightweight and unobtrusive design.
-- **Operator-Focused**: Simple interface for red teamers to control engagements.
-- **Stealthy Communication**: Simple TCP-based protocol for controlled environments.
-- **Modular Command Handlers**: Effortlessly extend functionality with reusable modules.
-- **MSF Integration**:
-- **Cross-Platform**: Works on Linux and Windows.
-- **Customizable**: Designed as a template for adaptation to diverse operational needs.
+## Features :
+
+1. **Minimal Footprint**: Optimized for low resource usage and system impact.
+2. **Operator-Focused**: Streamlined for efficiency in execution and management of operations.
+3. **Stealthy Communication**: Custom TCP protocol with fallback channels (HTTP/DNS) for secure, discreet communication.
+4. **Modular Command Handlers**: Easy-to-add modules for core functions, with a minimal base set.
+5. **MSF Integration**: Seamless integration with Metasploit for exploits and payloads.
+6. **Cross-Platform**: Supports both Linux and Windows systems.
+7. **Customizable**: Adaptable for various operational needs and engagements.
+8. **Secure Authentication**: Lightweight but secure access control for authorized users.
+9. **Basic Agent Management**: Simple deployment and real-time status feedback for agents.
 
 ## Structure :
 
@@ -25,8 +26,8 @@ The framework consists of:
 
 1. **Server**: The command controller that allows the operator (Player) to send instructions to connected clients and view their responses.
 2. **Agent (Implant)**: A lightweight agent deployed on target systems, designed to execute commands and report back to the server.
-3. **Player**: Client For the red teamer who runs the command server, issues commands, and manages engagements.
-4. **Modules**: A streamlined architecture that makes it extremely easy to add, remove, or update functionality through simple modules. 
+3. **Player**: The client interface for the red teamer, used to run the command server, issue commands, and manage engagements.
+4.**Modules**: A collection of interchangeable modules that provide various functionalities. Easily add, remove, update or write modules to extend the framework’s capabilities.
 
 ## Installation Prerequisites :
 
