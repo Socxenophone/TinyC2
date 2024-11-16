@@ -5,7 +5,7 @@
 
 A lightweight, modular Command and Control (C2) framework, designed for both learning and practical red teaming. Built with the KISS principle and stealth in mind, it provides a flexible foundation that can be easily customized and extended for real-world operations or specific needs. 
 
----
+
 
 
 ## Features :
@@ -27,7 +27,8 @@ The framework consists of:
 1. **Server**: The command controller that allows the operator (Player) to send instructions to connected clients and view their responses.
 2. **Agent (Implant)**: A lightweight agent deployed on target systems, designed to execute commands and report back to the server.
 3. **Player**: The client interface for the red teamer, used to run the command server, issue commands, and manage engagements.
-4.**Modules**: A collection of interchangeable modules that provide various functionalities. Easily add, remove, update or write modules to extend the framework’s capabilities.
+4. Listener (If Deployed) : provides reduancy and stuff, middle man between agent and Control server  
+5.**Modules**: A collection of interchangeable modules that provide various functionalities. Easily add, remove, update or write modules to extend the framework’s capabilities.
 
 ## Installation Prerequisites :
 
@@ -100,7 +101,7 @@ Your new module is now fully functional and ready for use!
    Hello, world! Module executed successfully.
    ```
 
-*v1.0: Foundational Features**
+#### **v1.0: Foundational Features**
 - [ ] Basic TCP-based communication between server and client.
 - [ ] Command execution (e.g., `ls`, `exec`).
 - [ ] Modular architecture with extendable command handlers.
@@ -123,7 +124,5 @@ Your new module is now fully functional and ready for use!
 - [ ] Integration with popular red-team tools like Cobalt Strike or Metasploit.
 - [ ] Comprehensive logging and audit trail for ethical engagements.
 
-
->
-> **Disclaimer**: This project is for **educational purposes only**. Unauthorized use is strictly prohibited. And I take no responsibility whatsoever 
+<blockquote style="color:red;"> Disclaimer: This project is for educational purposes only. Unauthorized use is strictly prohibited. And I take no responsibility whatsoever. </blockquote>
 
