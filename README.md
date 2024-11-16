@@ -1,6 +1,6 @@
 # WIP
 ## TinyC2
-
+![](https://github.com/Socxenophone/TinyC2/blob/main/thumbnail.jpg) 
 TinyC2 is a lightweight, modular Command and Control (C2) framework that serves as both a learning tool and a practical foundation for red teaming. Designed for ease of use and flexibility, it is adaptable and reusable, allowing for quick customization and extension for real-world operations.
 
 It's designed with simplicity (KISS principle) and stealth in mind, this project serves as a starting point for red teams and startups to customize and expand it based on their needs.
