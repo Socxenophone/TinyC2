@@ -1,11 +1,12 @@
 # WIP
 ## TinyC2
 
-TinyC2 is a simple, modular Command and Control framework written in C. 
+TinyC2 is a lightweight, modular Command and Control (C2) framework that serves as both a learning tool and a practical foundation for red teaming. Designed for ease of use and flexibility, it is adaptable and reusable, allowing for quick customization and extension for real-world operations.
 
 It's designed with simplicity (KISS principle) and stealth in mind, this project serves as a starting point for red teams and startups to customize and expand it based on their needs.
 
 The framework consists of:
+
 1. **Server**: The **command controller** that allows the operator (Player) to send instructions to connected clients and view their responses.
 2. **Client (Implant)**: A **lightweight agent** deployed on target systems, designed to execute commands and report back to the server.
 3. **Player (Operator)**: The **red teamer** who runs the server, issues commands via the server interface, and manages engagements.
