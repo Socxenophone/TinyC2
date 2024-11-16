@@ -1,36 +1,110 @@
-# TinyC2
+# WIP
+## TinyC2
 
-TinyC2 is a simple, modular Command and Control framework written in C. Designed with simplicity (KISS principle) and stealth in mind, this project serves as a **template** for red teams and startups to customize and expand based on their needs.
+TinyC2 is a simple, modular Command and Control framework written in C. 
 
-The framework basically consists of:
-1. **Server**: Command controller to interact with clients.
-2. **Client**: Lightweight agent (implant) that executes commands and reports results.
-3. **Modular Design**: Simplified dynamic extension of functionality through command handlers.
+It's designed with simplicity (KISS principle) and stealth in mind, this project serves as a starting point for red teams and startups to customize and expand it based on their needs.
 
-> **Disclaimer**: This project is for **educational and ethical penetration testing purposes only**. Unauthorized use is strictly prohibited.
+The framework consists of:
+1. **Server**: The **command controller** that allows the operator (Player) to send instructions to connected clients and view their responses.
+2. **Client (Implant)**: A **lightweight agent** deployed on target systems, designed to execute commands and report back to the server.
+3. **Player (Operator)**: The **red teamer** who runs the server, issues commands via the server interface, and manages engagements.
+4. **Modular Design**: A streamlined architecture that makes it extremely easy to add, remove, or update functionality through simple modules.
+
 
 ---
+
 
 ## Features
 - **Minimal Footprint**: Lightweight and unobtrusive design.
-- **Modular Command Handlers**: Easily extendable with new functionality.
+- **Operator-Focused**: Simple interface for red teamers to control engagements.
 - **Stealthy Communication**: Simple TCP-based protocol for controlled environments.
-- **Cross-Platform**: Compatible with Linux and Windows.
-- **Template for Customization**: Adaptable to diverse operational needs.
+- **Modular Command Handlers**: Effortlessly extend functionality with reusable modules.
+- **Cross-Platform**: Works on Linux and Windows.
+- **Customizable**: Designed as a template for adaptation to diverse operational needs.
 
 ---
 
-## Installation
-
-### Prerequisites
+## Installation Prerequisites
 - GCC or a compatible C compiler
 - Networking libraries (`arpa/inet.h`, `winsock2.h` on Windows)
 
+## Usage 
+
+1. **Run the Server**: Start the server to listen for incoming connections from clients.
+  `./server`
+3. **Deploy the Implant**: Execute the client binary (implant) on the target system. This connects back to the server.
+4. **Issue Commands**: Use the server interface to issue commands to connected clients and review responses. 
+
+## Adding Modules :
+
+Adding new functionality to the client is designed to be quick and easy. For example :
 
 ---
 
-### **Roadmap**
+### 1. Create Your Module File
 
+Create a new `.c` file (e.g., `modules/hello_module.c`) for your custom command handler:
+```c
+#include <string.h>
+
+// Function to handle the "hello" command
+void handle_hello(char *response) {
+    strcpy(response, "Hello, world! Module executed successfully.\n");
+}
+```
+
+---
+
+### 2. Add the Module to the Client
+
+Include your module in the `client.c` file by adding this line at the top:
+```c
+#include "modules/hello_module.c"
+```
+
+---
+
+### 3. Register the Command
+
+Add the new command to the command dispatcher in `client.c`:
+```c
+if (strncmp(buffer, "hello", 5) == 0) {
+    handle_hello(response);
+}
+```
+
+---
+
+### 4. Rebuild the Client
+
+Recompile the client to include the new module:
+```bash
+gcc -o client client.c
+```
+
+Your new module is now fully functional and ready for use!
+
+---
+
+### Example Workflow
+
+1. **Server Input**: 
+   ```bash
+   Enter command: hello
+   ```
+
+2. **Client Response**: 
+   ```
+   Hello, world! Module executed successfully.
+   ```
+
+That’s it! Adding modules is as simple as writing a function and registering it.
+
+
+### **Roadmap**
+### Proof Of Concept :
+- [x] Working POC 
 #### **v1.0: Foundational Features**
 - [ ] Basic TCP-based communication between server and client.
 - [ ] Command execution (e.g., `ls`, `exec`).
@@ -53,4 +127,8 @@ The framework basically consists of:
 - [ ] Sandbox evasion and detection mechanisms.
 - [ ] Integration with popular red-team tools like Cobalt Strike or Metasploit.
 - [ ] Comprehensive logging and audit trail for ethical engagements.
+
+
+>
+> **Disclaimer**: This project is for **educational purposes only**. Unauthorized use is strictly prohibited. And I take no responsibility whatsoever 
 
