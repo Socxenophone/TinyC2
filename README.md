@@ -3,9 +3,9 @@
 ![](https://github.com/Socxenophone/TinyC2/blob/main/thumbnail.jpg) 
 
 
-A lightweight, modular Command and Control (C2) framework, designed for both learning and practical red teaming. Built with simplicity (KISS principle) and stealth in mind, it provides a flexible foundation that can be easily customized and extended for real-world operations. Ideal for red teams and startups, it serves as a starting point to tailor and scale according to specific needs. 
+A lightweight, modular Command and Control (C2) framework, designed for both learning and practical red teaming. Built with simplicity (KISS principle) and stealth in mind, it provides a flexible foundation that can be easily customized and extended for real-world operations. 
 
-
+Intended to serve as a starting point for the user to tailor and scale according to specific needs. 
 
 ---
 
@@ -15,6 +15,7 @@ A lightweight, modular Command and Control (C2) framework, designed for both lea
 - **Operator-Focused**: Simple interface for red teamers to control engagements.
 - **Stealthy Communication**: Simple TCP-based protocol for controlled environments.
 - **Modular Command Handlers**: Effortlessly extend functionality with reusable modules.
+- **MSF Integration**:
 - **Cross-Platform**: Works on Linux and Windows.
 - **Customizable**: Designed as a template for adaptation to diverse operational needs.
 
@@ -22,10 +23,10 @@ A lightweight, modular Command and Control (C2) framework, designed for both lea
 
 The framework consists of:
 
-1. **Server**: The **command controller** that allows the operator (Player) to send instructions to connected clients and view their responses.
-2. **Client (Implant)**: A **lightweight agent** deployed on target systems, designed to execute commands and report back to the server.
-3. **Player (Operator)**: The **red teamer** who runs the server, issues commands via the server interface, and manages engagements.
-4. **Modular Design**: A streamlined architecture that makes it extremely easy to add, remove, or update functionality through simple modules. 
+1. **Server**: The command controller that allows the operator (Player) to send instructions to connected clients and view their responses.
+2. **Agent (Implant)**: A lightweight agent deployed on target systems, designed to execute commands and report back to the server.
+3. **Player**: Client For the red teamer who runs the command server, issues commands, and manages engagements.
+4. **Modules**: A streamlined architecture that makes it extremely easy to add, remove, or update functionality through simple modules. 
 
 ## Installation Prerequisites :
 
@@ -33,9 +34,7 @@ Grab the latest version from the release page.
 
 If you want to compile its yourself, you'll need :
 - GCC or a compatible C compiler
-- Networking libraries (`arpa/inet.h`, `winsock2.h` on Windows)
-
-
+- Networking libraries (`arpa/inet.h`, or `winsock2.h` on Windows)
 
 ## Usage 
 
@@ -46,9 +45,7 @@ If you want to compile its yourself, you'll need :
 
 ## Adding Modules :
 
-Adding new functionality to the client is designed to be quick and easy. For example :
-
-
+Adding modules is as simple as writing a function and registering it. For example :
 
 #### 1. Create Your Module File
 
@@ -69,7 +66,6 @@ Include your module in the `client.c` file by adding this line at the top:
 #include "modules/hello_module.c"
 ```
 
----
 
 #### 3. Register the Command
 
@@ -80,7 +76,6 @@ if (strncmp(buffer, "hello", 5) == 0) {
 }
 ```
 
----
 
 #### 4. Rebuild the Client
 
@@ -91,7 +86,6 @@ gcc -o client client.c
 
 Your new module is now fully functional and ready for use!
 
----
 
 ##### Example Workflow
 
@@ -105,15 +99,7 @@ Your new module is now fully functional and ready for use!
    Hello, world! Module executed successfully.
    ```
 
-That’s it! Adding modules is as simple as writing a function and registering it.
-
----
-
-
-### **Roadmap**
-### Proof Of Concept :
-- [x] Working POC 
-#### **v1.0: Foundational Features**
+*v1.0: Foundational Features**
 - [ ] Basic TCP-based communication between server and client.
 - [ ] Command execution (e.g., `ls`, `exec`).
 - [ ] Modular architecture with extendable command handlers.
